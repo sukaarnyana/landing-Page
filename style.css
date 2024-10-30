@@ -7,13 +7,16 @@
 
 body {
     line-height: 1.6;
+    background: #f8f8f8;
 }
 
 .header {
-    background: #333;
+    background: transparent;
+    /* background: rgb(51, 71, 151); */
     color: #fff;
     padding: 2rem 0;
     text-align: center;
+    position: relative;
 }
 
 .navbar {
@@ -24,9 +27,9 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    color: black;
     text-decoration: none;
 }
 
@@ -37,42 +40,85 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: black;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s;
 }
 
 .nav-links a:hover {
     background: #555;
     border-radius: 5px;
+    transform: translateY(-2px);
 }
 
 .hero {
-    padding: 2rem;
+    position: relative;
+    padding: 0rem 0rem;
+    padding-bottom: 3rem;
+    color: #333;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* Mengatur transparansi overlay */
+    /* z-index: 1; */
+    /* Menempatkan overlay di atas gambar */
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 600px;
+
+    /* Sesuaikan dengan ukuran yang diinginkan */
+    object-fit: cover;
+    margin-right: auto;
+    /* Memastikan gambar menutupi area */
+    margin-bottom: 1rem;
+    filter: brightness(80%);
+    /* Menambahkan kecerahan untuk meningkatkan kontras */
 }
 
 .hero h1 {
+    position: relative;
+    /* Memastikan teks berada di atas overlay */
+    z-index: 2;
+    /* Memindahkan teks di atas overlay */
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .hero p {
+    position: relative;
+    /* Memastikan teks berada di atas overlay */
+    z-index: 2;
+    /* Memindahkan teks di atas overlay */
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
 .cta {
+    position: relative;
+    /* Memastikan tombol berada di atas overlay */
+    z-index: 2;
+    /* Memindahkan tombol di atas overlay */
     text-decoration: none;
-    color: #333;
-    background: #fff;
+    color: #fff;
+    background: blueviolet;
     padding: 0.8rem 2rem;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s;
 }
 
 .cta:hover {
     background: #ddd;
+    transform: translateY(-2px);
 }
 
 section {
@@ -80,11 +126,21 @@ section {
     text-align: center;
 }
 
-.about,
+.about {
+    color: black;
+}
+
 .services,
 .contact {
     max-width: 800px;
     margin: 0 auto;
+    color: black;
+}
+
+.about-all {
+    /* background-color: cornflowerblue; */
+    background: rgb(226, 223, 223);
+
 }
 
 .service-card {
@@ -92,6 +148,11 @@ section {
     padding: 1.5rem;
     margin: 1rem 0;
     border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .footer {
@@ -99,4 +160,51 @@ section {
     color: #fff;
     text-align: center;
     padding: 1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta {
+        padding: 0.5rem 1.5rem;
+    }
+
+    .service-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
 }
